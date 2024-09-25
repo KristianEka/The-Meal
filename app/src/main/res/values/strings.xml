@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">The Meal</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="category_thumbnail">Category Thumbnail</string>
+    <string name="categories">Categories</string>
+    <string name="detail_thumbnail">Detail Thumbnail</string>
+    <string name="area">Area</string>
+    <string name="how_to_make_it">How To Make It</string>
+    <string name="ingredients">Ingredients</string>
+</resources>

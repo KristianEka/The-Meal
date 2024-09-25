@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".view.DetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detail_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/custom_appbar"
+            app:layout_constraintBottom_toTopOf="@+id/card_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_thumb"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:contentDescription="@string/detail_thumbnail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                <ImageView
+                    android:id="@+id/iv_category"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="@string/categories"
+                    android:src="@drawable/ic_food"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_category"
+                    app:layout_constraintStart_toStartOf="@+id/iv_thumb"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_thumb" />
+
+                <TextView
+                    android:id="@+id/tv_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/categories"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_category"
+                    app:layout_constraintEnd_toStartOf="@+id/iv_area"
+                    app:layout_constraintStart_toEndOf="@+id/iv_category"
+                    app:layout_constraintTop_toTopOf="@+id/iv_category" />
+
+                <ImageView
+                    android:id="@+id/iv_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/area"
+                    android:src="@drawable/ic_location"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_category"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_area"
+                    app:layout_constraintStart_toEndOf="@+id/tv_category"
+                    app:layout_constraintTop_toTopOf="@+id/tv_category" />
+
+                <TextView
+                    android:id="@+id/tv_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/area"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_area"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_thumb"
+                    app:layout_constraintStart_toEndOf="@+id/iv_area"
+                    app:layout_constraintTop_toTopOf="@+id/iv_area" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@id/tv_ingredients_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_detail" />
+
+        <TextView
+            android:id="@+id/tv_ingredients_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/ingredients"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/card_detail"
+            app:layout_constraintStart_toStartOf="@+id/card_detail"
+            app:layout_constraintTop_toBottomOf="@+id/card_detail" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_ingredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_ingredients_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_ingredients_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ingredients_title"
+            tools:listitem="@layout/item_ingredients" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@id/tv_instructions_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_ingredients" />
+
+        <TextView
+            android:id="@+id/tv_instructions_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/how_to_make_it"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/rv_ingredients"
+            app:layout_constraintStart_toStartOf="@+id/rv_ingredients"
+            app:layout_constraintTop_toBottomOf="@+id/rv_ingredients" />
+
+        <TextView
+            android:id="@+id/tv_instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="@+id/tv_instructions_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_instructions_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_instructions_title"
+            tools:text="@tools:sample/lorem/random" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_parent"
+            app:layout_constraintEnd_toEndOf="@+id/detail_parent"
+            app:layout_constraintStart_toStartOf="@+id/detail_parent"
+            app:layout_constraintTop_toTopOf="@+id/detail_parent"
+            tools:visibility="visible" />
+
+        <include
+            android:id="@+id/view_empty"
+            layout="@layout/view_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_parent"
+            app:layout_constraintEnd_toEndOf="@+id/detail_parent"
+            app:layout_constraintStart_toStartOf="@+id/detail_parent"
+            app:layout_constraintTop_toTopOf="@+id/detail_parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
